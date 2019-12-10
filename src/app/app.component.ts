@@ -14,6 +14,7 @@ import 'rxjs/add/operator/map';
 export class AppComponent {
   items: any;
   obj: any;
+
   constructor(public db: AngularFireDatabase) {
     this.db.list('users').valueChanges().subscribe(val => {
       this.items = val;
@@ -21,7 +22,6 @@ export class AppComponent {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
