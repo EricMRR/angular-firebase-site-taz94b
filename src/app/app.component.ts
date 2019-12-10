@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 import * as firebase from 'firebase/app';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import 'rxjs/add/operator/map';
+
+//import 'rxjs/add/operator/map'; //import { Observable } from 'rxjs';
 
 @Component({
   selector: 'site-app',
@@ -12,16 +12,12 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items: any;
-  obj: any;
+  //items: any;
+  //obj: any;
 
   constructor(public db: AngularFireDatabase) {
-    this.db.list('users').valueChanges().subscribe(val => {
-      this.items = val;
-      console.log(val);
-    });
+    //this.db.list('users').valueChanges().subscribe(val => { this.items = val; });
   }
 
   ngOnInit() { }
-
 }
