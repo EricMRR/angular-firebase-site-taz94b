@@ -7,25 +7,21 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'my-app',
+  selector: 'site-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   items: any;
   obj: any;
-  constructor(
-    public db: AngularFireDatabase
-  ) {
-    this.db.list('users')
-      .valueChanges()
-      .subscribe(val => {
-        this.items = val;
-        console.log(val);
-      });
+  constructor(public db: AngularFireDatabase) {
+    this.db.list('users').valueChanges().subscribe(val => {
+      this.items = val;
+      console.log(val);
+    });
   }
+
   ngOnInit() {
-    console.log('JSON.stringify(this.items) =>', this.items);
   }
 
 }
