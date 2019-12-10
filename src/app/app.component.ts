@@ -5,6 +5,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import 'rxjs/add/operator/map';
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -16,7 +17,7 @@ export class AppComponent {
   constructor(
     public db: AngularFireDatabase
   ) {
-    this.db.list('userData')
+    this.db.list('users')
       .valueChanges()
       .subscribe(val => {
         this.items = val;

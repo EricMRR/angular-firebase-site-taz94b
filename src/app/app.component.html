@@ -2,17 +2,17 @@
   <p>Show all users</p>
   <ul>
   <li *ngFor="let item of items">  
-      <p>Email : <strong>{{item.email}}</strong></p>
-      <p>MobileNumber: <strong> {{item.mobileNumber}}</strong></p>
+      <p>Id : <strong>{{item.id}}</strong></p>
       <p>Name: <strong> {{item.name}}</strong></p>
+      <p>Type: <strong> {{item.type}}</strong></p>
     <br>
     </li>
   </ul>
   Single user
   <ul>
     <li *ngIf="obj">
-      Email :{{obj.email}}
-      MobileNumber: {{obj.mobileNumber}}
+      Id :{{obj.id}}
+      Type: {{obj.type}}
       Name: {{obj.name}}
     </li>
   </ul>
