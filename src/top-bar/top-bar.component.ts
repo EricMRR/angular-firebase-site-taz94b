@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { mainModules } from './mainModules';
+import * as firebase from 'firebase/app';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,10 +11,12 @@ import { mainModules } from './mainModules';
 })
 
 export class TopBarComponent implements OnInit {
-  constructor() { }
-  modules = mainModules;
+  modules: any;
+
+  constructor(public db: AngularFireDatabase) {
+    this.db.list('appModules').valueChanges().subscribe(val => { this.modules = val; });
+  }
 
   ngOnInit() {
   }
-
 }

@@ -2,4 +2,4 @@
   <h1>Portal</h1>
 </a>
 
-<a class="button fancy-button" [routerLink]="[module.routerLink]" *ngFor="let module of modules"><i class="material-icons">{{module.material_icons}}</i>{{module.label}}</a>
+<a class="button fancy-button" [routerLink]="[module.module]" *ngFor="let module of modules"><i class="material-icons">{{module.icon}}</i>{{module.name}}</a>

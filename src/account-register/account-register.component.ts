@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as firebase from 'firebase/app';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
 @Component({
   selector: 'app-account-register',
   templateUrl: './account-register.component.html',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AccountRegisterComponent implements OnInit {
-  constructor() { }
+  logonServices: any;
+  accountTypes: any;
+
+  constructor(public db: AngularFireDatabase) {
+    this.state = this.getState();
+
+    this.db.list('logonServices').valueChanges().subscribe(val => { this.logonServices = val; });
+    this.db.list('accountTypes', ref => ref.equalTo(false, "secret")).valueChanges().subscribe(val => { this.accountTypes = val; });
+  }
+
+  state: any
 
   ngOnInit() {
   }
 
+  getState(){
+    var state = {
+      service: null
+      , gender: null
+      , accountType: null
+    };
+    return state;
+  }
+  startRegistry(service){
+    this.state.service = service;
+  }
+  setAccountType(_type){
+    this.state.accountType = _type;
+  }
+  cancel(){
+    this.state = this.getState();
+  }
 }

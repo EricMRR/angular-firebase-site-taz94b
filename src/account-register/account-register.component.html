@@ -1,3 +1,43 @@
 <div>
   <h2>Registro</h2>
 </div>
+
+<div *ngIf="state.service == null || state.service == undefined">
+  <div><h3>Registrate con</h3></div>
+  <div *ngFor="let service of logonServices" class="singleElement">
+    <div class="title">{{service.name}}</div>
+    <div class="info"><a (click)="startRegistry(service)">Registrar</a></div>
+  </div>
+</div>
+
+<div *ngIf="state.service != null && state.service != undefined">
+  <div><h3>Completa tu registro</h3></div>
+  <div>
+
+    <div>
+
+      <div>
+        <div>Tipo de cuenta</div>
+        <div><select (ngModelChange)="setAccountType($event)" [ngModel]="accountTypes"><option *ngFor="let type of accountTypes" [ngValue]="type">{{type.name}}</option></select></div>
+      </div>
+
+      <div>
+        <div>Nombre</div>
+        <div><input type="text" /></div>
+      </div>
+
+      <div>
+        <div>Fecha de nacimiento</div>
+        <div><input type="text" /></div>
+      </div>
+
+      <div>
+        <div>G&eacute;nero</div>
+        <div><input type="checkbox" /></div>
+      </div>
+
+    </div>
+
+  </div>
+  <div><a (click)="cancel()">Cancelar</a></div>
+</div>

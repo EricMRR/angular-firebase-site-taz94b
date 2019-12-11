@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as firebase from 'firebase/app';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import * as firebase from "firebase/app";
 
 @Component({
   selector: 'app-application-start',
@@ -10,11 +11,12 @@ import * as firebase from "firebase/app";
 })
 
 export class ApplicationStartComponent implements OnInit {
-  constructor() { }
+  categories: any;
+
+  constructor(public db: AngularFireDatabase) { 
+    this.db.list('categories').valueChanges().subscribe(val => { this.categories = val; });
+  }
 
   ngOnInit() {
-    console.log("---");
-    //console.log(firebase.database().ref('/users').once('value'));
-    //console.log("---");
   }
 }

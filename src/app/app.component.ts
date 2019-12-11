@@ -12,12 +12,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  //items: any;
-  //obj: any;
-
-  constructor(public db: AngularFireDatabase) {
-    //this.db.list('users').valueChanges().subscribe(val => { this.items = val; });
-  }
+  constructor(public db: AngularFireDatabase) { }
 
   ngOnInit() { }
 }
