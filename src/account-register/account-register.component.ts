@@ -18,7 +18,7 @@ export class AccountRegisterComponent implements OnInit {
     this.state = this.getState();
 
     this.db.list('logonServices').valueChanges().subscribe(val => { this.logonServices = val; });
-    this.db.list('accountTypes', ref => ref.equalTo(false, "secret")).valueChanges().subscribe(val => { this.accountTypes = val; });
+    this.db.list('accountTypes').valueChanges().subscribe(val => { this.accountTypes = val; });
   }
 
   state: any
