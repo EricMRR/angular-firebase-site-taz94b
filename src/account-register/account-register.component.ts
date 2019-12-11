@@ -38,7 +38,8 @@ export class AccountRegisterComponent implements OnInit {
     this.state.service = service;
   }
   setAccountType(_type){
-    this.state.accountType = _type;
+    if(this.state.accountType == _type) this.state.accountType = null;
+    else this.state.accountType = _type;
   }
   cancel(){
     this.state = this.getState();

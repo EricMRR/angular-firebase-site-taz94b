@@ -19,8 +19,8 @@
       <div>
         <div>Tipo de cuenta</div>
         <div>
-          <div [className]="'accountTypeSelector'" class="accountTypeSelector" *ngFor="let type of accountTypes">
-            <a (click)="setAccountType($event)">
+          <div [className]="'accountTypeSelector' + (state.accountType == type ? ' selected' : '')" class="accountTypeSelector" *ngFor="let type of accountTypes">
+            <a (click)="setAccountType(type)">
               <div class="title">{{type.name}}</div>
               <div class="description">{{type.description}}</div>
               <div class="secondDescription">{{type.secondDescription}}</div>
@@ -30,21 +30,44 @@
         </div>
       </div>
 
-<!--select (ngModelChange)="setAccountType($event)" [ngModel]="accountTypes"><option *ngFor="let type of accountTypes" [ngValue]="type">{{type.name}}</option></select-->
-
-      <div>
-        <div>Nombre</div>
-        <div><input type="text" /></div>
+      <div class="inputField">
+        <div class="inputTitle">Seud&oacute;nimo</div>
+        <div class="inputField"><input type="text" /></div>
       </div>
 
-      <div>
-        <div>Fecha de nacimiento</div>
-        <div><input type="text" /></div>
+      <div class="inputField">
+        <div class="inputTitle">Nombre</div>
+        <div class="inputField"><input type="text" /></div>
       </div>
 
-      <div>
-        <div>G&eacute;nero</div>
-        <div><input type="checkbox" /></div>
+      <div class="inputField">
+        <div class="inputTitle">Apellido paterno</div>
+        <div class="inputField"><input type="text" /></div>
+      </div>
+
+      <div class="inputField">
+        <div class="inputTitle">Apellido materno</div>
+        <div class="inputField"><input type="text" /></div>
+      </div>
+
+      <div class="inputField">
+        <div class="inputTitle">Fecha de nacimiento</div>
+        <div class="inputField"><input type="text" /></div>
+      </div>
+
+      <div class="inputField">
+        <div class="inputTitle">G&eacute;nero</div>
+        <div class="inputField"><input type="text" /></div>
+      </div>
+
+      <div class="inputField">
+        <div class="inputTitle">Correo electr&oacute;nico</div>
+        <div class="inputField"><input type="text" /></div>
+      </div>
+
+      <div class="inputField">
+        <div class="inputTitle">N&uacute;mero de tel&eacute;fono</div>
+        <div class="inputField"><input type="text" /></div>
       </div>
 
     </div>
