@@ -19,11 +19,11 @@
       <div>
         <div>Tipo de cuenta</div>
         <div>
-          <div class="accountTypeSelector" *ngFor="let type of accountTypes">
-            -
+          <div [className]="'accountTypeSelector'" class="accountTypeSelector" *ngFor="let type of accountTypes">
             <a (click)="setAccountType($event)">
               <div class="title">{{type.name}}</div>
               <div class="description">{{type.description}}</div>
+              <div class="secondDescription">{{type.secondDescription}}</div>
               <div class="actions"></div>
             </a>
           </div>

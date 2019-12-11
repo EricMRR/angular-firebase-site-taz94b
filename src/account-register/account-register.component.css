@@ -14,3 +14,28 @@
 .singleElement div.info{
   font-size: smaller;
 }
+
+.accountTypeSelector{
+  width: 200px;
+  padding: 10px;
+  border-radius: 3px;
+  /*background-color: #dddddd;*/
+  border: 2px solid #dddddd;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.accountTypeSelector div.title{
+  font-size: xx-large;
+  color: #333333;
+  padding: 20px;
+}
+.accountTypeSelector div.description{
+  font-size: x-large;
+  color: #333333;
+  padding: 10px;
+}
+.accountTypeSelector div.secondDescription{
+  /*font-size: x-small;*/
+  color: #333333;
+  padding: 10px;
+}
